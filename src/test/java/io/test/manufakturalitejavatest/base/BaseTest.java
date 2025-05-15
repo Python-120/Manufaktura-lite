@@ -1,4 +1,4 @@
-package io.test.manufakturalite.base;
+package io.test.manufakturalitejavatest.base;
 
 import io.github.cdimascio.dotenv.Dotenv;
 

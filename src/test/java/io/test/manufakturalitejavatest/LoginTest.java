@@ -1,6 +1,6 @@
-package io.test.manufakturalite;
+package io.test.manufakturalitejavatest;
 
-import io.test.manufakturalite.base.BaseTest;
+import io.test.manufakturalitejavatest.base.BaseTest;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

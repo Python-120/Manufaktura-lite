@@ -1,5 +1,6 @@
 package io.test.manufakturalitejavatest;
 
+import io.test.manufakturalitejava.pages.SingInPage;
 import io.test.manufakturalitejavatest.base.BaseTest;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,9 +14,14 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class LoginTest extends BaseTest {
 
+    private SingInPage singInPage = new SingInPage();
+
     @BeforeEach
     public void setUp() {
-        openUrl();
+
+        singInPage.open();
+        //openUrl();
+        singInPage.login(env.get("USER_EMAIL"), env.get("PASSWORD"));
     }
 
     @AfterEach
@@ -26,7 +32,7 @@ public class LoginTest extends BaseTest {
     @DisplayName("Authorization Test")
     @Test
     public void authorizationTest() {
-        loginInSystem();
+        //loginInSystem(env.get("USER_EMAIL"), env.get("PASSWORD"));
 
         checkResult();
     }
@@ -34,7 +40,7 @@ public class LoginTest extends BaseTest {
     @DisplayName("searchProject")
     @Test
     public void search() {
-        loginInSystem();
+//        loginInSystem(env.get("USER_EMAIL"), env.get("PASSWORD"));
         searchProject("Home");
 
         checkSearchElement("Home", "Home");
@@ -43,7 +49,7 @@ public class LoginTest extends BaseTest {
     @DisplayName("Project Page Test")
     @Test
     public void openProjectPage() {
-        loginInSystem();
+       // loginInSystem(env.get("USER_EMAIL"), env.get("PASSWORD"));
         searchProject("Home");
         clickToProject();
 
@@ -53,7 +59,7 @@ public class LoginTest extends BaseTest {
     @DisplayName("Select option on drop-down")
     @Test
     public void selectOptionOnDropDown() {
-        loginInSystem();
+      //  loginInSystem(env.get("USER_EMAIL"), env.get("PASSWORD"));
         selectOption("Free Projects");
 
         checkNoProject();
@@ -97,11 +103,11 @@ public class LoginTest extends BaseTest {
         open(env.get("BASE_URL"));
     }
 
-    private void loginInSystem() {
+    public void loginInSystem(String email, String password) {
         $("#content-desktop #user_email")
-                .setValue(env.get("USER_EMAIL"));
+                .setValue(email);
         $("#content-desktop #user_password")
-                .setValue(env.get("PASSWORD"));
+                .setValue(password);
         //$("#content-desktop #user_remember_me").click();
         $x("//div[@id='content-desktop']//input[@value='Sign In']")
                 .click();

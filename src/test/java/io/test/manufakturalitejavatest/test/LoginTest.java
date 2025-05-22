@@ -89,8 +89,6 @@ public class LoginTest extends BaseTest {
                 .shouldHave(text(text));
     }
 
-
-
     private static void checkResult() {
         $x("//div[@id='container']//div[@class='common-flash-success-right']//p")
                 .shouldBe(visible);

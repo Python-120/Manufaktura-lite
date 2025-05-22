@@ -13,6 +13,11 @@ ext {
     junitVersion = '5.11.3'
 }
 
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
 sourceCompatibility = '17'
 targetCompatibility = '17'
 
@@ -21,11 +26,13 @@ tasks.withType(JavaCompile) {
 }
 
 dependencies {
+    implementation 'com.codeborne:selenide:7.9.2'
+
+    implementation 'io.github.cdimascio:dotenv-java:3.2.0'
+    implementation('org.slf4j:slf4j-simple:2.0.13')
     testImplementation('org.seleniumhq.selenium:selenium-java:4.25.0')
-    testImplementation 'com.codeborne:selenide:7.9.2'
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
-    implementation 'io.github.cdimascio:dotenv-java:3.2.0'
 }
 
 test {

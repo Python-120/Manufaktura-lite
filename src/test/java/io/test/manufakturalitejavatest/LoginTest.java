@@ -14,13 +14,11 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class LoginTest extends BaseTest {
 
-    private SingInPage singInPage = new SingInPage();
+    private final SingInPage singInPage = new SingInPage();
 
     @BeforeEach
     public void setUp() {
-
         singInPage.open();
-        //openUrl();
         singInPage.login(env.get("USER_EMAIL"), env.get("PASSWORD"));
     }
 
@@ -29,44 +27,38 @@ public class LoginTest extends BaseTest {
         closeWebDriver();
     }
 
-    @DisplayName("Authorization Test")
+    @DisplayName("Check authorization")
     @Test
     public void authorizationTest() {
-        //loginInSystem(env.get("USER_EMAIL"), env.get("PASSWORD"));
-
         checkResult();
     }
 
-    @DisplayName("searchProject")
+    @DisplayName("Search project") //
     @Test
     public void search() {
-//        loginInSystem(env.get("USER_EMAIL"), env.get("PASSWORD"));
         searchProject("Home");
-
         checkSearchElement("Home", "Home");
     }
 
-    @DisplayName("Project Page Test")
+    @DisplayName("Open project page")
     @Test
     public void openProjectPage() {
-       // loginInSystem(env.get("USER_EMAIL"), env.get("PASSWORD"));
         searchProject("Home");
         clickToProject();
 
         checkTitle();
     }
 
-    @DisplayName("Select option on drop-down")
+    @DisplayName("Select Option")
     @Test
     public void selectOptionOnDropDown() {
-      //  loginInSystem(env.get("USER_EMAIL"), env.get("PASSWORD"));
         selectOption("Free Projects");
 
         checkNoProject();
     }
 
     private static void checkNoProject() {
-        $x("//p[contains(@class, 'mb-6')]")
+        $(byText("You have not created any projects yet"))
                 .shouldBe(visible);
     }
 
@@ -85,6 +77,7 @@ public class LoginTest extends BaseTest {
 
     private static void checkSearchElement(String element, String text) {
         $(byText(element))
+                .shouldBe(visible)
                 .shouldHave(text(text));
     }
 
@@ -96,20 +89,5 @@ public class LoginTest extends BaseTest {
     private static void checkResult() {
         $x("//div[@id='container']//div[@class='common-flash-success-right']//p")
                 .shouldBe(visible);
-
-    }
-
-    private void openUrl() {
-        open(env.get("BASE_URL"));
-    }
-
-    public void loginInSystem(String email, String password) {
-        $("#content-desktop #user_email")
-                .setValue(email);
-        $("#content-desktop #user_password")
-                .setValue(password);
-        //$("#content-desktop #user_remember_me").click();
-        $x("//div[@id='content-desktop']//input[@value='Sign In']")
-                .click();
     }
 }

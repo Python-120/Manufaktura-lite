@@ -1,11 +1,9 @@
 package io.test.manufakturalitejavatest.base;
 
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
 import io.github.cdimascio.dotenv.Dotenv;
 import io.test.manufakturalitejava.utils.Browsers;
 import org.junit.jupiter.api.BeforeAll;
-
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class BaseTest {

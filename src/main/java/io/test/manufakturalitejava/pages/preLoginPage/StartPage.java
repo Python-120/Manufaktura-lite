@@ -1,13 +1,11 @@
 package io.test.manufakturalitejava.pages.preLoginPage;
 
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import io.github.cdimascio.dotenv.Dotenv;
 import io.test.manufakturalitejava.base.BasePage;
 import io.test.manufakturalitejava.pages.SingInPage;
 
-import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$x;
 
 public class StartPage extends BasePage {
 

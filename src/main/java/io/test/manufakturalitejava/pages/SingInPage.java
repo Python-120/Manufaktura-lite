@@ -4,7 +4,7 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import io.test.manufakturalitejava.pages.homepage.ProjectsPage;
 
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
 
 public class SingInPage {
     private final SelenideElement userEmail = $("#content-desktop #user_email");

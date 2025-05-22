@@ -4,9 +4,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import java.util.Arrays;
-import java.util.List;
-
 public enum Browsers {
 
     CHROME {

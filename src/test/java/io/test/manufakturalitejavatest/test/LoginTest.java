@@ -1,6 +1,8 @@
-package io.test.manufakturalitejavatest;
+package io.test.manufakturalitejavatest.test;
 
 import io.test.manufakturalitejava.pages.SingInPage;
+import io.test.manufakturalitejava.pages.homepage.ProjectsPage;
+import io.test.manufakturalitejava.pages.preLoginPage.StartPage;
 import io.test.manufakturalitejavatest.base.BaseTest;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,6 +17,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class LoginTest extends BaseTest {
 
     private final SingInPage singInPage = new SingInPage();
+    private final ProjectsPage projectsPage = new ProjectsPage();
 
     @BeforeEach
     public void setUp() {
@@ -36,14 +39,17 @@ public class LoginTest extends BaseTest {
     @DisplayName("Search project") //
     @Test
     public void search() {
-        searchProject("Home");
+        projectsPage
+                .searchProject("Home");
+
         checkSearchElement("Home", "Home");
     }
 
     @DisplayName("Open project page")
     @Test
     public void openProjectPage() {
-        searchProject("Home");
+        projectsPage
+                .searchProject("Home");
         clickToProject();
 
         checkTitle();
@@ -52,7 +58,9 @@ public class LoginTest extends BaseTest {
     @DisplayName("Select Option")
     @Test
     public void selectOptionOnDropDown() {
-        selectOption("Free Projects");
+        projectsPage
+                .selectCompanyByVisibleText("Free Projects");
+
 
         checkNoProject();
     }
@@ -81,10 +89,7 @@ public class LoginTest extends BaseTest {
                 .shouldHave(text(text));
     }
 
-    private void searchProject(String projectName) {
-        $(By.xpath("//input[@id='search']"))
-                .setValue(projectName);
-    }
+
 
     private static void checkResult() {
         $x("//div[@id='container']//div[@class='common-flash-success-right']//p")

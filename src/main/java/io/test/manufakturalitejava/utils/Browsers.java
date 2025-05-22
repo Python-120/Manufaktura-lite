@@ -23,7 +23,7 @@ public enum Browsers {
             } else {
                 options.addArguments("--start-maximized");
             }
-            return new DesiredCapabilities(options); // Selenide все ще може приймати DesiredCapabilities
+            return new DesiredCapabilities(options);
         }
 
         @Override
@@ -49,7 +49,7 @@ public enum Browsers {
             if (headless) {
                 options.addArguments("-headless");
             } else {
-                options.addArguments("-private"); // або інші аргументи для Firefox
+                options.addArguments("-private");
             }
             return new DesiredCapabilities(options);
         }

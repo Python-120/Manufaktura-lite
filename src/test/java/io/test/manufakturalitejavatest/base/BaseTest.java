@@ -1,6 +1,7 @@
 package io.test.manufakturalitejavatest.base;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import io.github.cdimascio.dotenv.Dotenv;
 import io.test.manufakturalitejava.utils.Browsers;
 import org.junit.jupiter.api.BeforeAll;
@@ -32,7 +33,7 @@ public class BaseTest {
         Configuration.browserCapabilities = capabilities;
 
 
-        /** Встановлюємо розмір вікна, якщо браузер не в headless режимі
+        /** Встановлюємо розмір вікна, якщо браузер не true
          */
         if (!headless) {
             Configuration.browserSize = selectedBrowser.getBrowserWidth() + "x" + selectedBrowser.getBrowserHeight();

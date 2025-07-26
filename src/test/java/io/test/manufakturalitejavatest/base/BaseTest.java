@@ -8,6 +8,8 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class BaseTest {
     public static Dotenv env = Dotenv.load();
+    public final String username = env.get("USER_EMAIL");
+    public final String password = env.get("PASSWORD");
 
     @BeforeAll
     static void setup() {

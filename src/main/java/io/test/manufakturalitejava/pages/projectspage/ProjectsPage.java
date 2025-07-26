@@ -1,8 +1,8 @@
-package io.test.manufakturalitejava.pages.homepage;
+package io.test.manufakturalitejava.pages.projectspage;
 
 import com.codeborne.selenide.SelenideElement;
 import io.test.manufakturalitejava.base.BasePage;
-import io.test.manufakturalitejava.pages.CreateProjectPage;
+import io.test.manufakturalitejava.pages.projectpage.ProjectPage;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
@@ -35,16 +35,17 @@ public class ProjectsPage extends BasePage {
        return this;
     }
 
-    public void clickOnProjectCard(String projectName) {
+    public ProjectPage clickOnProjectCard(String projectName) {
         $(byText(projectName))
                 .click();
+        return page(ProjectPage.class);
     }
 
-    public CreateProjectPage clickCreateButtonNearSearch() {
+    public ProjectPage clickCreateButtonNearSearch() {
         createButtonNearSearch
                 .shouldBe(enabled)
                 .click();
-        return page(CreateProjectPage.class);
+        return page(ProjectPage.class);
     }
 
     public Integer getNumberOfProjectUsers(SelenideElement targetProject) {

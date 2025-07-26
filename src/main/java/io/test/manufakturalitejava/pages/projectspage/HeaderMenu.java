@@ -1,4 +1,4 @@
-package io.test.manufakturalitejava.pages.homepage;
+package io.test.manufakturalitejava.pages.projectspage;
 
 import com.codeborne.selenide.SelenideElement;
 

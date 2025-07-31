@@ -11,6 +11,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class ProjectPage {
     private SelenideElement readme = $x("//div[@id='ember3']//a[@id='ember40']");
     private SelenideElement editButton = $(byLinkText("Edit"));
+    private SelenideElement checkText = $("#welcometotestomatio");
 
     public ProjectPage clickToReadme() {
         readme.shouldBe(visible).click();
@@ -20,6 +21,10 @@ public class ProjectPage {
     public ReadmiPage clickToEditButton() {
         editButton.shouldBe(visible).click();
         return new ReadmiPage();
+    }
+
+    public String getText() {
+        return checkText.getText();
     }
 
 }

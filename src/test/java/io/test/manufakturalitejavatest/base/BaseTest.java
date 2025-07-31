@@ -4,6 +4,7 @@ import com.codeborne.selenide.Configuration;
 import io.github.cdimascio.dotenv.Dotenv;
 import io.test.manufakturalitejava.utils.Browsers;
 import org.junit.jupiter.api.BeforeAll;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class BaseTest {
@@ -38,7 +39,7 @@ public class BaseTest {
         if (!headless) {
             Configuration.browserSize = selectedBrowser.getBrowserWidth() + "x" + selectedBrowser.getBrowserHeight();
         }
-
+        Configuration.browserSize = "1280x1080";
         Configuration.timeout = 10000;
         Configuration.pageLoadTimeout = 20000;
         Configuration.fastSetValue = true;

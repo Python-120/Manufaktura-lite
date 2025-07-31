@@ -1,10 +1,10 @@
 package io.test.manufakturalitejavatest.test;
 
 
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.junit5.TextReportExtension;
 import io.test.manufakturalitejava.pages.projectpage.ProjectPage;
 import io.test.manufakturalitejava.pages.projectspage.ProjectsPage;
+import io.test.manufakturalitejava.pages.redmi.ReadmiPage;
 import io.test.manufakturalitejava.pages.singIn.SingInPage;
 import io.test.manufakturalitejavatest.base.BaseTest;
 import org.junit.jupiter.api.AfterEach;
@@ -20,6 +20,7 @@ public class ReadmeIframeTest extends BaseTest {
     private final SingInPage singInPage = new SingInPage();
     private final ProjectsPage projectsPage = new ProjectsPage();
     private final ProjectPage projectPage = new ProjectPage();
+    private final ReadmiPage readmiPage = new ReadmiPage();
 
     @BeforeEach
     public void setUp() {
@@ -47,10 +48,13 @@ public class ReadmeIframeTest extends BaseTest {
                 .searchProject("Home")
                 .clickOnProjectCard("Home")
                 .clickToReadme()
-                .switchToReadmeIframe()
-                .clickToEditButton()
-        ;
+                .clickToEditButton();
 
-        Selenide.getFocusedElement();
+        readmiPage
+                .isLoaded()
+                .clickEditRedmi()
+                .clickOnTheFirstLineInTextInEditor();
+//                .clickOnUpdateButton();
+        
     }
-}
+} 

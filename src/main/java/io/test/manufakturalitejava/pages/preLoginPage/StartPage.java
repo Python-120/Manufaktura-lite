@@ -2,7 +2,7 @@ package io.test.manufakturalitejava.pages.preLoginPage;
 
 import com.codeborne.selenide.SelenideElement;
 import io.test.manufakturalitejava.base.BasePage;
-import io.test.manufakturalitejava.pages.SingInPage;
+import io.test.manufakturalitejava.pages.singIn.SingInPage;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$x;

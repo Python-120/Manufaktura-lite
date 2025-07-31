@@ -1,8 +1,8 @@
-package io.test.manufakturalitejava.pages;
+package io.test.manufakturalitejava.pages.singIn;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import io.test.manufakturalitejava.pages.homepage.ProjectsPage;
+import io.test.manufakturalitejava.pages.projectspage.ProjectsPage;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -12,8 +12,9 @@ public class SingInPage {
     private final SelenideElement rememberMe = $("#content-desktop #user_remember_me");
     private final SelenideElement loginButton = $("#content-desktop [name=commit]");
 
-    public void open() {
+    public SingInPage open() {
         Selenide.open("/");
+        return this;
     }
 
     public ProjectsPage login(String username, String password) {
@@ -43,6 +44,7 @@ public class SingInPage {
 
         return new ProjectsPage();
     }
+
 
 
 

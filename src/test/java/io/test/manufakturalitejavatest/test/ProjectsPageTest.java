@@ -1,7 +1,7 @@
 package io.test.manufakturalitejavatest.test;
 
-import io.test.manufakturalitejava.pages.SingInPage;
-import io.test.manufakturalitejava.pages.homepage.ProjectsPage;
+import io.test.manufakturalitejava.pages.singIn.SingInPage;
+import io.test.manufakturalitejava.pages.projectspage.ProjectsPage;
 import io.test.manufakturalitejavatest.base.BaseTest;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -10,15 +10,16 @@ import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 
-public class ProjectPageTest extends BaseTest {
+public class ProjectsPageTest extends BaseTest {
 
     private final SingInPage singInPage = new SingInPage();
     private final ProjectsPage projectsPage = new ProjectsPage();
 
     @BeforeEach
     public void setUp() {
-        singInPage.open();
-        singInPage.login(env.get("USER_EMAIL"), env.get("PASSWORD"));
+        singInPage
+                .open()
+                .login(username, password);
     }
 
     @AfterEach
@@ -33,7 +34,7 @@ public class ProjectPageTest extends BaseTest {
                 .checkResult();
     }
 
-    @DisplayName("Search project") //
+    @DisplayName("Search project")
     @Test
     public void search() {
         projectsPage
@@ -71,6 +72,5 @@ public class ProjectPageTest extends BaseTest {
                 .clickOnProjectCard("Home");
 
     }
-
 
 }

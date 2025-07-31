@@ -15,12 +15,12 @@ public class ProjectPage {
 
     public ProjectPage clickToReadme() {
         readme.shouldBe(visible).click();
-        return this;
+        return page(ProjectPage.class);
     }
 
     public ReadmiPage clickToEditButton() {
         editButton.shouldBe(visible).click();
-        return new ReadmiPage();
+        return page(ReadmiPage.class);
     }
 
     public String getText() {
